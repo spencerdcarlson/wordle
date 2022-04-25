@@ -1,0 +1,31 @@
+name: Elixir CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      MIX_ENV: test
+    name: Format, Lint & Unit Test
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup elixir
+      uses: erlef/setup-beam@v1
+      with:
+        otp-version: '24.3.3'
+        elixir-version: '1.13.4'
+    - name: Install Dependencies
+      run: mix deps.get --only ${MIX_ENV:-test}
+    - name: Compile
+      run: mix compile
+    - name: Format
+      run: mix format --check-formatted 
+    - name: Lint
+      run: mix credo --strict
+    - name: Run Tests
+      run: mix test
