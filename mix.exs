@@ -10,7 +10,13 @@ defmodule Wordle.MixProject do
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "Wordle",
+      source_url: "https://github.com/spencerdcarlson/wordle",
+      homepage_url: "https://github.com/spencerdcarlson/wordle",
+      docs: docs_config()
     ]
   end
 
@@ -34,6 +40,7 @@ defmodule Wordle.MixProject do
   defp deps do
     [
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.28", only: :dev, runtime: false},
       {:uuid, "~> 1.1"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
@@ -53,6 +60,13 @@ defmodule Wordle.MixProject do
   defp aliases do
     [
       setup: ["deps.get"]
+    ]
+  end
+
+  def docs_config do
+    [
+      extras: ["README.md"],
+      main: "readme"
     ]
   end
 end
