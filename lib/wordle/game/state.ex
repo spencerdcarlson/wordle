@@ -1,4 +1,12 @@
 defmodule Wordle.Game.State do
+  @moduledoc """
+  State of a Wordle Game. This includes:
+    * The maximum allowed attempts
+    * The secret word
+    * All attempts at guessing the word
+    * A game UUID
+  """
+
   alias Wordle.Game.Attempt
 
   defstruct max_attempts: 5, word: nil, attempts: [], uuid: nil

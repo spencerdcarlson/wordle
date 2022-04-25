@@ -1,4 +1,8 @@
 defmodule Wordle.Game.Store do
+  @moduledoc """
+  Store all `Wordle.Game.State` and allow lookup by `Wordle.Game.State.uuid`
+  """
+
   use GenServer
 
   require Logger

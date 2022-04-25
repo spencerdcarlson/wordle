@@ -1,4 +1,8 @@
 defmodule WordleWeb.Telemetry do
+  @moduledoc """
+  A Unified way to collect application metrics
+  """
+
   use Supervisor
   import Telemetry.Metrics
 

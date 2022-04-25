@@ -1,6 +1,10 @@
 defmodule Wordle.Game do
+  @moduledoc """
+  Service to create and manage games.
+  """
+
   require Logger
-  alias Wordle.Game.{State, Store, Mapper}
+  alias Wordle.Game.{Mapper, State, Store}
   alias Wordle.Picker
 
   def create(guess) do

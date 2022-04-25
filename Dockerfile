@@ -15,6 +15,7 @@ COPY lib ./lib/
 COPY priv ./priv/
 COPY test ./test/
 COPY .formatter.exs ./
+COPY .credo.exs ./
 
 RUN mix local.rebar --force && \
     mix compile

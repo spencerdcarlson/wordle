@@ -1,4 +1,10 @@
 defmodule Wordle.Game.Attempt do
+  @moduledoc """
+  State of an Wordle Game Attempt. This includes:
+    * The secret word
+    * A guess - a list of graphemes as `:correct`, `:present`, or `:absent`
+  """
+
   defstruct word: nil, guess: nil
 
   def new(word), do: %__MODULE__{word: word}

@@ -1,4 +1,7 @@
 defmodule Wordle.Game.Mapper do
+  @moduledoc """
+  Map a `Wordle.Game.State` to simple objects that can be converted to a JSON response.
+  """
   alias Wordle.Game.{Attempt, State}
 
   def call(game = %State{uuid: uuid}, opts \\ []) do
